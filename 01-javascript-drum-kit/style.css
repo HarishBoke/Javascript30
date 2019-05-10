@@ -1,0 +1,28 @@
+body {
+    background: url(http://i.imgur.com/b9r5sEL.jpg) bottom center;
+}
+.container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+    height:100vh;
+    justify-content: center;
+    align-content: center;
+}
+.key {
+    background: rgba(0,0,0,.3);
+    border:3px solid #000;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: #ccc 0px 0px;
+    transition: all 0.7s;
+}
+.key > div{
+    color: #ffc931;
+}
+.key.playing {
+    border-color: #ffc931;
+    transform: scale(1,1);
+}
