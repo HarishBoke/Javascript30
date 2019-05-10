@@ -1,5 +1,5 @@
 body {
-    background: url(http://i.imgur.com/b9r5sEL.jpg) bottom center;
+    background: url(https://i.imgur.com/y7aFGo1.jpg);
 }
 .container {
     display: grid;
@@ -10,8 +10,8 @@ body {
     align-content: center;
 }
 .key {
-    background: rgba(0,0,0,.3);
-    border:3px solid #000;
+    background: rgba(169, 169, 169, 0.3);
+    border:3px solid #4e4e4e;
     padding: 10px;
     color: #fff;
     text-align: center;
@@ -23,6 +23,6 @@ body {
     color: #ffc931;
 }
 .key.playing {
-    border-color: #ffc931;
-    transform: scale(1,1);
+    border-color: #27c66f;
+    transform: scale(1.05,1.05);
 }
