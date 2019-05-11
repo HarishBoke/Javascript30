@@ -36,11 +36,12 @@
                 .flex-item {
                     width: 30rem;
                     height:30rem;
-                    border:3px solid black;
+                    border:10px solid #cbdfff;
                     border-radius: 50%;
                     margin:0px auto;
                     padding: 2rem;
                     position: relative;
+                    box-shadow: 2px 2px aliceblu
                 }
                 .clock-face {
                     position: relative;
@@ -58,6 +59,17 @@
                     transform: rotate(90deg);
                     transition: all 0.05s;
                     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+                }
+                .minutes-hand {
+                    background: lightskyblue;
+                    height: 7px;
+                }
+                .seconds-hand {
+                    background: lightblue;
+                }
+                .hours-hand {
+                    background: lightseagreen;
+                    height: 8px;
                 }
             </style>
     <script>
