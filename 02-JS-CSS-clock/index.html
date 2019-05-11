@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Javascript - CSS  clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    
+</head>
+<body>
+        <div class="flex-container">
+                <div class="flex-item">
+                    <div class="clock-face">
+                            <div id="seconds" class="hand seconds-hand"></div>
+                            <div id="minuts" class="hand minutes-hand"></div>
+                            <div id="hours" class="hand hours-hand"></div>
+                    </div>
+                </div>
+        </div>
+        <style>
+                html {
+                    background: #018DED url(http://unsplash.it/1500/1000?image=881&blur=50);
+                    background-size: cover;
+                    font-family: 'helvetica neue';
+                    text-align: center;
+                    font-size: 10px;
+                }
+                .flex-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100vh;
+                    font-size: 2rem;
+                }
+                .flex-item {
+                    width: 30rem;
+                    height:30rem;
+                    border:3px solid black;
+                    border-radius: 50%;
+                    margin:0px auto;
+                    padding: 2rem;
+                    position: relative;
+                }
+                .clock-face {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    transform: translateY(-3px); /* account for the height of the clock hands */
+                }
+                .hand {
+                    width:50%;
+                    height: 6px;
+                    background: black;
+                    position: absolute;
+                    top: 50%;
+                    transform-origin: 100%;
+                    transform: rotate(90deg);
+                    transition: all 0.05s;
+                    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+                }
+            </style>
+    <script>
+        const secondsHand = document.getElementById("seconds");
+        const minutesHand = document.getElementById("minuts");
+        const hoursHand = document.getElementById("hours");
+
+        function setTime() {
+            var getDate = new Date();
+
+            var  seconds = getDate.getSeconds();
+            const secondDegree = ((seconds / 60) * 360) + 90;
+            secondsHand.style.transform = `rotate(${secondDegree}deg)`;
+
+            var  minutes = getDate.getMinutes();
+            const minutesDegree = ((minutes / 60) * 360) + ((seconds/60)*6) + 90;
+            minutesHand.style.transform = `rotate(${minutesDegree}deg)`;
+
+            var  hours = getDate.getHours();
+            const hoursDegree = ((hours / 12) * 360) + ((minutes/60)*30) + 90;
+            hoursHand.style.transform = `rotate(${hoursDegree}deg)`;
+            
+            //console.log(seconds);
+        }
+        setInterval(setTime, 1000);
+        setTime();
+    </script>
+</body>
+</html>
