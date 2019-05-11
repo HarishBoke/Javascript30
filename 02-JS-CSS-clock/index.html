@@ -12,6 +12,12 @@
         <div class="flex-container">
                 <div class="flex-item">
                     <div class="clock-face">
+                            <div class="digits">
+                                <span class="twelve">12</span>
+                                <span class="three">3</span>
+                                <span class="six">6</span>
+                                <span class="nine">9</span>
+                            </div>
                             <div id="seconds" class="hand seconds-hand"></div>
                             <div id="minuts" class="hand minutes-hand"></div>
                             <div id="hours" class="hand hours-hand"></div>
@@ -70,6 +76,32 @@
                 .hours-hand {
                     background: lightseagreen;
                     height: 8px;
+                }
+                .digits {
+                    font-size:22px;
+                    height: inherit;
+                    
+                }
+                .digits > span {
+                    position: absolute;
+                    color: #fff;
+                    text-shadow: 2px 2px #000;
+                }
+                .digits .twelve { 
+                    top:0;
+                    left: 46%;
+                }
+                .digits .three { 
+                    top:42%;
+                    right: 0;
+                }
+                .digits .six { 
+                    bottom:0;
+                    left: 46%;
+                }
+                .digits .nine { 
+                    top:42%;
+                    left: 0;
                 }
             </style>
     <script>
