@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Playing with CSS variables and Javscript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        :root{
+           --baseColor: #ff000f; 
+           --spacing: 10px;
+           --blur: 10px;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            padding: 10px 30px;
+        }
+        .h1 {
+            color: var(--baseColor);
+        }
+        .varActions {
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            
+        }
+        .varOutput {
+            padding: var(--spacing);
+            background:var(--baseColor);
+            display: inline-block;
+            margin: 20px auto;
+        }
+        .varOutput > img {
+            filter: blur(var(--blur));
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+            <h1>Update CSS Variables in <span class="h1">JS</span></h1>
+            <div class="varActions">
+                    <div class="actionSpacing">
+                        <label for="spacing">Spacing</label>
+                        <input id="spacing" type="range" min="10" max="200" data-sizing="px">
+                    </div>
+                    <div class="actionSpacing">
+                        <label for="blur">Blur</label>
+                        <input id="blur" type="range" min="10" max="200" data-sizing="px">
+                    </div>
+                    <div class="actionSpacing">
+                        <label for="baseColor">Base Color</label>
+                        <input id="baseColor" type="color" >
+                    </div>
+            </div>
+            <div class="varOutput">
+                <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" alt="img" />
+            </div>
+    </div>
+</body>
+</html>
