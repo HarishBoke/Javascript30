@@ -27,7 +27,7 @@
         .h1 {
             color: var(--baseColor);
         }
-        .varActions {
+        .controls {
             display: flex;
             justify-content: center;
             align-items:center;
@@ -49,23 +49,34 @@
 <body>
     <div class="container">
             <h1>Update CSS Variables in <span class="h1">JS</span></h1>
-            <div class="varActions">
+            <div class="controls">
                     <div class="actionSpacing">
                         <label for="spacing">Spacing</label>
-                        <input id="spacing" type="range" min="10" max="200" data-sizing="px">
+                        <input id="spacing" type="range" min="0" max="200" data-sizing="px">
                     </div>
-                    <div class="actionSpacing">
+                    <div class="actionBlur">
                         <label for="blur">Blur</label>
-                        <input id="blur" type="range" min="10" max="200" data-sizing="px">
+                        <input id="blur" type="range" min="0" max="200" data-sizing="px">
                     </div>
-                    <div class="actionSpacing">
+                    <div class="actionColor">
                         <label for="baseColor">Base Color</label>
                         <input id="baseColor" type="color" >
                     </div>
             </div>
             <div class="varOutput">
-                <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" alt="img" />
+                <img id="displayImg" src="https://source.unsplash.com/7bwQXzbF6KE/800x500" alt="img" />
             </div>
     </div>
+    <script>
+        var inputes =  document.querySelectorAll('.controls input');
+        function handleUpdate(){
+            const suffix = this.dataset.sizing || ''; // dataset gives us all value attached to data Attr
+            document.documentElement.style.setProperty(`--${this.id}`, this.value + suffix);
+        }
+        inputes.forEach(function controlValue(input){
+            input.addEventListener('change', handleUpdate);
+            input.addEventListener('mousemove', handleUpdate);
+        })
+    </script>
 </body>
 </html>
